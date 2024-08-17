@@ -37,13 +37,13 @@
         <div class="reference-section-body">
           In HTML, the code is written in a 'hierarchy'.<br>
           <code>
-            &lthtml&gt<br>
-            &nbsp &ltdiv&gt<br>
-            &nbsp &nbsp &ltp&gt
+            &lt;html&gt;<br>
+            &nbsp &lt;div&gt;<br>
+            &nbsp &nbsp &lt;p&gt;
             Welcome!
-            &ltp&gt<br>
-            &nbsp &lt/div&gt<br>
-            &lt/html&gt
+            &lt;p&gt;<br>
+            &nbsp &lt;/div&gt;<br>
+            &lt;/html&gt;
           </code> <br>
           The code above shows that the <code>html</code> tag is the parent of the <code>div</code> and <code>p</code> tags. In this instance, the <code>div</code> tag is the parent of the <code>p</code> tag, but the child of the <code>html</code> tag.
         </div>
@@ -64,8 +64,8 @@
           <h2>Displaying Text</h2>
         </div>
         <div class="reference-section-body">
-          To display text, the <code>&ltp&gt</code> or <code>&ltspan&gt</code> tags can be used. <code>&ltp&gt</code> stands for <em>paragraph</em>. The <code>&ltspan&gt</code> element is used to separate small pieces of text within a paragraph.
-          It's best to use <code>&ltspan&gt</code> element to target specific pieces of content that is inline or on the same line as other text. <code>&ltdiv&gt</code> is best used to divide content into blocks.<br>
+          To display text, the <code>&lt;p&gt;</code> or <code>&lt;span&gt;</code> tags can be used. <code>&lt;p&gt;</code> stands for <em>paragraph</em>. The <code>&lt;span&gt;</code> element is used to separate small pieces of text within a paragraph.
+          It's best to use <code>&lt;span&gt;</code> element to target specific pieces of content that is inline or on the same line as other text. <code>&lt;div&gt;</code> is best used to divide content into blocks.<br>
           <img src="../images/html_displayingText.jpg" alt="HTML code showing how to display text with the paragraph and span elements.">
         </div>
       </div>
@@ -75,10 +75,10 @@
           <h2>Styling Text & Line Breaks</h2>
         </div>
         <div class="reference-section-body">
-          Using the <code>&ltem&gt</code> and <code>&ltstrong&gt</code> elements will style the text accordingly:<br>
-          - <code>&ltem&gt</code> : <em>makes the text italic</em><br>
-          - <code>&ltstrong&gt</code> : <strong>makes the text bold</strong><br><br>
-          Using the <code>&ltbr&gt</code> element will push content onto a new line.
+          Using the <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> elements will style the text accordingly:<br>
+          - <code>&lt;em&gt;</code> : <em>makes the text italic</em><br>
+          - <code>&lt;strong&gt;</code> : <strong>makes the text bold</strong><br><br>
+          Using the <code>&lt;br&gt;</code> element will push content onto a new line.
         </div>
       </div>
 
@@ -87,28 +87,28 @@
           <h2>Unordered & Ordered Lists</h2>
         </div>
         <div class="reference-section-body">
-          The <code>&ltul&gt</code> element allows text to be listed in an unordered list. A bullet-point list as an example.
+          The <code>&lt;ul&gt;</code> element allows text to be listed in an unordered list. A bullet-point list as an example.
           <ul class="no-style">
             <li class="no-style">Chicken</li>
             <li class="no-style">Tortillas</li>
             <li class="no-style">Sauce</li>
             <li class="no-style">Cheese</li>
           </ul>
-          To use an ordered list, the <code>&ltol&gt</code> element can be used instead.<br>
+          To use an ordered list, the <code>&lt;ol&gt;</code> element can be used instead.<br>
           <ol>
             <li class="no-style">Chicken</li>
             <li class="no-style">Tortillas</li>
             <li class="no-style">Sauce</li>
             <li class="no-style">Cheese</li>
           </ol>
-          Creating lists requires the <code>&ltli&gt</code> elements between the <code>&ltul&gt</code> or <code>&ltol&gt</code> elements like so:<br>
+          Creating lists requires the <code>&lt;li&gt;</code> elements between the <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> elements like so:<br>
           <code>
-            &ltul&gt<br>
-            &nbsp &ltli&gt Chicken &lt/li&gt<br>
-            &nbsp &ltli&gt Tortillas &lt/li&gt<br>
-            &nbsp &ltli&gt Sauce &lt/li&gt<br>
-            &nbsp &ltli&gt Cheese &lt/li&gt<br>
-            &lt/ul&gt
+            &lt;ul&gt;<br>
+            &nbsp &lt;li&gt; Chicken &lt;/li&gt;<br>
+            &nbsp &lt;li&gt; Tortillas &lt;/li&gt;<br>
+            &nbsp &lt;li&gt; Sauce &lt;/li&gt;<br>
+            &nbsp &lt;li&gt; Cheese &lt;/li&gt;<br>
+            &lt;/ul&gt;
           </code>
         </div>
       </div>
@@ -118,13 +118,13 @@
           <h2>Images & Videos</h2>
         </div>
         <div class="reference-section-body">
-          To include images on a webpage, the <code>&ltimg&gt</code> element is used. As discussed in Elements, the <code>&ltimg&gt</code> element requires the <code>src</code> attribute.
+          To include images on a webpage, the <code>&lt;img&gt;</code> element is used. As discussed in Elements, the <code>&lt;img&gt;</code> element requires the <code>src</code> attribute.
           The <code>src</code> attribute needs a valid path to the image that is to be loaded. For example:<br>
-          <code>&ltimg src="blueSky.jpg" alt="An image showing a picture of a clear blue sky" /&gt</code> <br><br>
-          Elements can have multiple attributes depending on the element being used. Above, the img element contains an <code>alt</code> attribute which is used to describe the image. This is particulary useful for accessibility options (screen readers). The text will show if the image can't be loaded too. Some HTML elements don't require a closing tag, like the <code>&ltimg&gt</code> tag.<br>
+          <code>&lt;img src="blueSky.jpg" alt="An image showing a picture of a clear blue sky" /&gt;</code> <br><br>
+          Elements can have multiple attributes depending on the element being used. Above, the img element contains an <code>alt</code> attribute which is used to describe the image. This is particulary useful for accessibility options (screen readers). The text will show if the image can't be loaded too. Some HTML elements don't require a closing tag, like the <code>&lt;img&gt;</code> tag.<br>
           Using the <code>alt</code> attribute also helps search engines find a website too. This is apart of the Search Engine Optimization (SEO). Search engines cannot see images, but can use the text searched.<br><br>
-          HTML also has the capability of playing videos on a webpage. This can be done by using the <code>&ltvideo&gt &lt/video&gt</code> element.
-          <code>&ltvideo src="myVideo.mp4" width="256" height="256" controls&gtVideo Unavailable...&lt/video&gt</code><br>
+          HTML also has the capability of playing videos on a webpage. This can be done by using the <code>&lt;video&gt; &lt;/video&gt;</code> element.
+          <code>&lt;video src="myVideo.mp4" width="256" height="256" controls&gt;Video Unavailable...&lt;/video&gt;</code><br>
           Like the <code>img</code> tag, the <code>video</code> tag requires certain attributes.<br>
           <ul class="no-style">
             <li class="no-style"><code>src</code> = Location of where the video is</li>
@@ -141,11 +141,11 @@
           <h2>Linking</h2>
         </div>
         <div class="reference-section-body">
-          To link to another website or webpage, the <code>&lta&gt</code> tag is used. The <em>a</em> stands for <em>anchor.</em> This tag requires a <code>href</code> attribute which stands for <em>hypertext reference</em>, and is used to specifiy where the hyperlink should take the user.<br>
-          <code>&lta href="https://youtube.com"&gtYouTube&lta&gt</code><br>
+          To link to another website or webpage, the <code>&lt;a&gt;</code> tag is used. The <em>a</em> stands for <em>anchor.</em> This tag requires a <code>href</code> attribute which stands for <em>hypertext reference</em>, and is used to specifiy where the hyperlink should take the user.<br>
+          <code>&lt;a href="https://youtube.com"&gt;YouTube&lt;a&gt;</code><br>
           The text <em>YouTube</em> will be displayed and when clicked, will take the user to YouTube (or any website/webpage specified by the <code>href</code> attribute).<br><br>
           To link to a webpage on the same website, a relative path must be provided to the webpage.<br>
-          <code>&lta href="./contact_us.html"&gtContact Us&lta&gt</code><br><br>
+          <code>&lt;a href="./contact_us.html"&gt;Contact Us&lt;a&gt;</code><br><br>
           The anchor tag has the <code>target</code> attribute which determines where the web page will open.<br>
           <ul class="no-style">
             <li class="no-style"><code>_blank</code>: opens the hyperlink in a new window/tab</li>
@@ -154,7 +154,7 @@
             <li class="no-style"><code>_top</code>: opens the hyperlink in the full body of the window</li>
           </ul><br>
           By default, hyperlinks are displayed as text. Nesting tags, images can be clickable hyperlinks too.<br>
-          <code>&lta href="https://youtube.com"&gt&ltimg src="youtubeLogo.jpg"&gt&lt/a&gt</code><br>
+          <code>&lt;a href="https://youtube.com"&gt;&lt;img src="youtubeLogo.jpg"&gt;&lt;/a&gt;</code><br>
           The above line will display the YouTube logo which is then clickable to take the user to YouTube.com.<br><br>
           Hyperlinks can be created to link to specific headers within the same page.
         </div>
@@ -165,28 +165,28 @@
           <h2>HTML Document Standards</h2>
         </div>
         <div class="reference-section-body">
-          When creating a new HTML file, <code>&lt!DOCTYPE html&gt</code> is the first line that is required. This allows the browser to know that the file is a HTML file by starting with the <em>document type declaration</em>.
+          When creating a new HTML file, <code>&lt;!DOCTYPE html&gt;</code> is the first line that is required. This allows the browser to know that the file is a HTML file by starting with the <em>document type declaration</em>.
           Using that at the top of every HTML file future proofs the file for any newer versions of HTML.<br><br> 
         </div>
       </div>
 
       <div class="reference-section">
         <div class="reference-section-title">
-          <h2>The <code>&lthtml&gt</code> tag</h2>
+          <h2>The <code>&lt;html&gt;</code> tag</h2>
         </div>
         <div class="reference-section-body">
-          After the <code>&ltDOCTYPE! html&gt</code>, the <code>&lthtml&gt &lt/html&gt</code> tags must be used. All HTML markup will go between these two tags. 
+          After the <code>&lt;DOCTYPE! html&gt;</code>, the <code>&lt;html&gt; &lt;/html&gt;</code> tags must be used. All HTML markup will go between these two tags. 
           Whilst the browser will render things without these tags, the browser may interpret additional HTML incorrectly.
         </div>
       </div>
 
       <div class="reference-section">
         <div class="reference-section-title">
-          <h2>The <code>&lthead&gt</code> tag</h2>
+          <h2>The <code>&lt;head&gt;</code> tag</h2>
         </div>
         <div class="reference-section-body">
-          Before the <code>&ltbody&gt</code> tags, the <code>&lthead&gt</code> <code>&lt/head&gt</code> tags are used. Anything between the <code>head</code> tags doesn't show on the web page itself,
-          as they mostly contain metadata about the page. The only exception to this is the <code>&lttitle&gt &lt/title&gt</code> tag (discussed in the next section).
+          Before the <code>&lt;body&gt;</code> tags, the <code>&lt;head&gt;</code> <code>&lt;/head&gt;</code> tags are used. Anything between the <code>head</code> tags doesn't show on the web page itself,
+          as they mostly contain metadata about the page. The only exception to this is the <code>&lt;title&gt; &lt;/title&gt;</code> tag (discussed in the next section).
         </div>
       </div>
 
@@ -195,18 +195,18 @@
           <h2>Page Titles</h2>
         </div>
         <div class="reference-section-body">
-          Using the <code>&lttitle&gt &lt/title&gt</code> tags within the <code>head</code> tags, allows the developer to set a title for the page.<br>
-          As an example, writing the following <code>&lttitle&gt YouTube &lt/title&gt</code>, will show like this in the browser used:<br>
+          Using the <code>&lt;title&gt; &lt;/title&gt;</code> tags within the <code>head</code> tags, allows the developer to set a title for the page.<br>
+          As an example, writing the following <code>&lt;title&gt; YouTube &lt;/title&gt;</code>, will show like this in the browser used:<br>
           <img src="../images/html_exampleTitle.jpg" alt="An image showing 'YouTube' as the pages title within the browsers tab.">
         </div>
       </div>
 
       <div class="reference-section">
         <div class="reference-section-title">
-          <h2>The <code>&ltbody&gt</code> tag</h2>
+          <h2>The <code>&lt;body&gt;</code> tag</h2>
         </div>
         <div class="reference-section-body">
-          After the <code>head</code> tag, the <code>&ltbody&gt &lt/body&gt</code> tag is used. The <code>body</code> tag will contain all other HTML content within the webpage.<br>
+          After the <code>head</code> tag, the <code>&lt;body&gt; &lt;/body&gt;</code> tag is used. The <code>body</code> tag will contain all other HTML content within the webpage.<br>
           As an example, the markup of a basic HTML file using the tags explained above would look something like this:<br>
           <img src="../images/html_basicHTMLFile.jpg">
         </div>
@@ -219,14 +219,14 @@
         <div class="reference-section-body">
           As HTML files grow in size, using whitespace and indentation makes the file easier to read. Consider the following:<br>
           <code>
-            &lt!DOCTYPE html&gt<br>
-            &lthtml&gt<br>&ltbody&gt<br>&lth1&gtWhitespace&lt/h1&gt&ltp&gtWhitespace and indentation make HTML documents easier to read.&lt/p&gt&lt/body&gt<br>&lt/html&gt<br>
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>&lt;body&gt;<br>&lt;h1&gt;Whitespace&lt;/h1&gt;&lt;p&gt;Whitespace and indentation make HTML documents easier to read.&lt;/p&gt;&lt;/body&gt;<br>&lt;/html&gt;<br>
           </code>
           Whilst the above may not be that difficult to read, but as the HTML markup grows with more complex webpages, the more difficult it will become to read.<br>
           Consider the same markup from above, but with whitespace and indentation applied:<br>
           <code>
-            &lt!DOCTYPE html&gt<br>
-            &emsp;&lthtml&gt<br>&emsp;&emsp;&ltbody&gt<br>&emsp;&emsp;&emsp;&lth1&gtWhitespace&lt/h1&gt<br>&emsp;&emsp;&emsp;&emsp;&ltp&gtWhitespace and indentation make HTML documents easier to read.&lt/p&gt<br>&emsp;&emsp;&lt/body&gt<br>&lt/html&gt<br>
+            &lt;!DOCTYPE html&gt;<br>
+            &emsp;&lt;html&gt;<br>&emsp;&emsp;&lt;body&gt;<br>&emsp;&emsp;&emsp;&lt;h1&gt;Whitespace&lt;/h1&gt;<br>&emsp;&emsp;&emsp;&emsp;&lt;p&gt;Whitespace and indentation make HTML documents easier to read.&lt;/p&gt;<br>&emsp;&emsp;&lt;/body&gt;<br>&lt;/html&gt;<br>
           </code>
           The markup above is much easier to read and the hierarchy can be seen much clearer too. The W3C are responsible for maintaining the style for HTML standards. W3C recommend <em>2 spaces</em> of indentation.
         </div>
@@ -240,7 +240,7 @@
           Like most other languages, HTML allow developers to write comments in their document. This is useful when coming back to a document after a long time, or if someone new looks at the document.<br>
           A HTML comment can be done like so:<br>
           <code>
-            &lthtml&gt<br>&emsp;&lt!-- This is a HTML comment --&gt<br>&lt/html&gt<br>
+            &lt;html&gt;<br>&emsp;&lt;!-- This is a HTML comment --&gt;<br>&lt;/html&gt;<br>
           </code>
           When comments are written, the browser does not render them to the webpages itself. Comments are only visible when viewing the pages source from a browser or opening the HTML file in an editor.
         </div>
@@ -251,7 +251,7 @@
           <h2>Tables</h2>
         </div>
         <div class="reference-section-body">
-          Creating tables in HTML is done with a few different tags. The main tag for creating a table is the <code>&lttable&gt &lt/table&gt</code> tag.<br>
+          Creating tables in HTML is done with a few different tags. The main tag for creating a table is the <code>&lt;table&gt; &lt;/table&gt;</code> tag.<br>
           However, each row and column are defined differently to actually make a table. 
           <table>
             <tr>
@@ -267,10 +267,10 @@
           <img src="../images/html_tables001.jpg" alt="Image showing basic HTML markup for a table.">
           A HTML table is broken down into 4 different tags.<br>
           <ul class="no-style">
-            <li class="no-style"><code>&lttable&gt &lt/table&gt</code> - When creating a HTML table, these tags need to be used.This won't render anything by default.</li>
-            <li class="no-style"><code>&lttr&gt &lt/tr&gt</code> - Stands for <em>table row</em>. This defines a single row in the table.</li>
-            <li class="no-style"><code>&ltth&gt &lt/th&gt</code> - Stands for <em>table header</em>. This tags are used to define the heading of a column in a table. By default, the text will be bold.</li>
-            <li class="no-style"><code>&lttd&gt &lt/td&gt</code> - Stands for <em>table data</em>. This tag is used to insert a 'cell' underneath the heading.</li> 
+            <li class="no-style"><code>&lt;table&gt; &lt;/table&gt;</code> - When creating a HTML table, these tags need to be used.This won't render anything by default.</li>
+            <li class="no-style"><code>&lt;tr&gt; &lt;/tr&gt;</code> - Stands for <em>table row</em>. This defines a single row in the table.</li>
+            <li class="no-style"><code>&lt;th&gt; &lt;/th&gt;</code> - Stands for <em>table header</em>. This tags are used to define the heading of a column in a table. By default, the text will be bold.</li>
+            <li class="no-style"><code>&lt;td&gt; &lt;/td&gt;</code> - Stands for <em>table data</em>. This tag is used to insert a 'cell' underneath the heading.</li> 
           </ul>
           When writing the markup for a HTML table, each <code>th</code> or <code>td</code> used will create cells <strong>horizontally.</strong> The <code>th</code> tag isn't required but helps identify the data in that column.<br>
         </div>
@@ -339,8 +339,8 @@
           <h2>Tables - Body, Head, and Footer</h2>
         </div>
         <div class="reference-section-body">
-          As tables grow in size, sections of the table can be sectioned off with the <code>&lttbody&gt &lt/tbody&gt</code> tags. The same rules apply for table headers too, with the <code>&ltthead&gt &lt/thead&gt</code> tags.
-          Tables might contain footers to show the total result of a particular data set, the <code>&lttfoot&gt &lt/tfoot&gt</code> tags can be used.
+          As tables grow in size, sections of the table can be sectioned off with the <code>&lt;tbody&gt; &lt;/tbody&gt;</code> tags. The same rules apply for table headers too, with the <code>&lt;thead&gt; &lt;/thead&gt;</code> tags.
+          Tables might contain footers to show the total result of a particular data set, the <code>&lt;tfoot&gt; &lt;/tfoot&gt;</code> tags can be used.
         </div>
       </div>
 
@@ -352,16 +352,16 @@
             When building webpages, a combination of non-semantics and semantic tags are used. <em>Semantic</em> meaning 'relating to meaning'. Semantic elements that provide information about the content between the opening and closing tags.<br>
             For example, these might be tags like:
             <ul class="no-style">
-              <li class="no-style"><code>&ltarticle&gt</code></li>
-              <li class="no-style"><code>&lttable&gt</code></li>
-              <li class="no-style"><code>&ltbutton&gt</code></li>
-              <li class="no-style"><code>&ltmain&gt</code></li>
-              <li class="no-style"><code>&ltfooter&gt</code></li>
+              <li class="no-style"><code>&lt;article&gt;</code></li>
+              <li class="no-style"><code>&lt;table&gt;</code></li>
+              <li class="no-style"><code>&lt;button&gt;</code></li>
+              <li class="no-style"><code>&lt;main&gt;</code></li>
+              <li class="no-style"><code>&lt;footer&gt;</code></li>
             </ul>
             Non-semantic tags provide no context or information as to what is between the opening and closing tags:
             <ul class="no-style">
-              <li class="no-style"><code>&ltdiv&gt</code></li>
-              <li class="no-style"><code>&ltspan&gt</code></li>
+              <li class="no-style"><code>&lt;div&gt;</code></li>
+              <li class="no-style"><code>&lt;span&gt;</code></li>
             </ul>
             Semantic HTML should be used for the following reasons:
             <ul class="no-style">
@@ -377,7 +377,7 @@
           <h2>Header and Nav Tags</h2>
         </div>
         <div class="reference-section-body">
-          The <code>&ltheader&gt</code> and <code>&lt/header&gt</code> tag is a container usually for either navigational links or introductory information containing <code>&lth1&gt</code> to <code>&lth6&gt</code> headings.
+          The <code>&lt;header&gt;</code> and <code>&lt;/header&gt;</code> tag is a container usually for either navigational links or introductory information containing <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> headings.
           As an example, this would be a basic header for a webpage
           <img src="../images/html_basicHeader.jpg" alt="Shows basic HTML narkup for the header tag.">
           The code example above is the header tags for this web page!<br>
@@ -391,7 +391,7 @@
           <h2>Main and Footer Tags</h2>
         </div>
         <div class="reference-section-body">
-          Two more structual elements are the <code>&ltmain&gt</code> <code>&lt/main&gt</code> and <code>&ltfooter&gt</code> <code>&lt/footer&gt</code> tags. The <code>main</code> tag is used to contain all of the main content of the web page.
+          Two more structual elements are the <code>&lt;main&gt;</code> <code>&lt;/main&gt;</code> and <code>&lt;footer&gt;</code> <code>&lt;/footer&gt;</code> tags. The <code>main</code> tag is used to contain all of the main content of the web page.
           The <code>footer</code> tag is used for information at the bottom of a page. The footer usually contains copyright information, links, logos, sitemap, etc.
         </div>
       </div>
@@ -401,14 +401,14 @@
           <h2>Article and Section</h2>
         </div>
         <div class="reference-section-body">
-          The <code>&ltsection&gt</code> <code>&lt/section&gt</code> tag defines elements in a web page, such as chapters, headings, or any other area with the same theme.<br><br>
-          The <code>&ltarticle&gt</code> <code>&lt/article&gt</code> tag holds content that makes sense on it's own. This can be content such as articles, blog posts, comments, etc. This would help someone with a screen reader identify that they're about to read an article of some sort.
+          The <code>&lt;section&gt;</code> <code>&lt;/section&gt;</code> tag defines elements in a web page, such as chapters, headings, or any other area with the same theme.<br><br>
+          The <code>&lt;article&gt;</code> <code>&lt;/article&gt;</code> tag holds content that makes sense on it's own. This can be content such as articles, blog posts, comments, etc. This would help someone with a screen reader identify that they're about to read an article of some sort.
         </div>
       </div>
 
       <div class="reference-section">
         <div class="reference-section-title">
-          <h2>&ltaside&gt tag</h2>
+          <h2>&lt;aside&gt; tag</h2>
         </div>
         <div class="reference-section-body">
           This element is used to mark additional information what can enhance another element but isn't required in order to understand the main content. This can be used along side <code>article</code> or <code>section</code>. Some of the common uses are:
@@ -425,10 +425,10 @@
 
       <div class="reference-section">
         <div class="reference-section-title">
-          <h2>&ltfigure&gt and &ltfigcaption&gt tag</h2>
+          <h2>&lt;figure&gt; and &lt;figcaption&gt; tag</h2>
         </div>
         <div class="reference-section-body">
-          <code>&ltfigure&gt</code> is an element used to encapsulate media such as an image, illustration, diagram, code snippet, etc. which is referenced in the main flow of the web page. Using <code>&ltfigcaption&gt</code>, this allows the developer to give the figure a caption. These tags can be used like so:<br>
+          <code>&lt;figure&gt;</code> is an element used to encapsulate media such as an image, illustration, diagram, code snippet, etc. which is referenced in the main flow of the web page. Using <code>&lt;figcaption&gt;</code>, this allows the developer to give the figure a caption. These tags can be used like so:<br>
           <figure>
             <img src="../images/html_figureTags.jpg">
             <figcaption>A screen shot showing how the figure and figcaption tags are used in HTML.</figcaption>
