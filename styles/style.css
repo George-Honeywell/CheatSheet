@@ -6,6 +6,10 @@ a {
   color: white;
 }
 
+code {
+  color: lightseagreen;
+}
+
 body {
   background-color: black;
   color: white;
@@ -17,10 +21,39 @@ footer {
   text-align: center;
 }
 
+h2 {
+  margin: 0;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
 ul {
   width: 100%;
   font-size: 50px;
   text-align: center;
+}
+
+ul.no-style {
+  font-size: 16px;
+  text-align: left;
+}
+
+li.no-style {
+  display: list-item;
+  width: inherit;
+  height: auto;
+  border: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+li.no-style:hover {
+  background-color: black;
+  color: white;
 }
 
 ul.navigation-reference-page{
@@ -75,4 +108,10 @@ li:hover {
 .sub-title {
   text-align: center;
   font-weight: normal;
+}
+
+table, th, td {
+  border: 2px solid white;
+  position: relative;
+  margin: 0 auto;
 }
