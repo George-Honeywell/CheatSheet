@@ -16,6 +16,11 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.c_section-title {
+  text-decoration: underline;
+  text-align: center;
+}
+
 footer {
   font-size: 12px;
   text-align: center;
