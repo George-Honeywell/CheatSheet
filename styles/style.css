@@ -91,14 +91,15 @@ li:hover {
 .reference-section {
   border: 2px solid white;
   border-radius: 5px;
-  margin: 10px;
+  margin: 20px auto;
+  width: 50%;
 }
 
 .reference-section-title {
   background-color: white;
   color: black;
   padding: 5px;
-  font-size: 25px;
+  font-size: 16px;
   font-weight: bold;
 }
 
