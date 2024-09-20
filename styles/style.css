@@ -6,6 +6,10 @@ a {
   color: white;
 }
 
+a.c-standard:hover {
+  color: white;
+}
+
 code {
   color: lightseagreen;
 }

@@ -45,12 +45,487 @@
 
       <div class="reference-section">
         <div class="reference-section-title">
-          --- Coming Soon ---
+          Inline Styles
         </div>
         <div class="reference-section-body">
-          Coming Soon...
+          CSS Rulesets can also be applied directly in a HTML document.<br>
+          <code>&lt;p style="color: red, font-size: 20px"&gt; Hello, world! &lt;/p&gt;</code><br>
+          The line of code above will make that specific paragraph element have red text, which is 20 pixels in size. Using an external CSS sheet or <code>style</code> element can only apply styles to multiple of the same tag.
         </div>
       </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Internal Stylesheet
+        </div>
+        <div class="reference-section-body">
+          As discussed above, HTML has the <code>&lt;style&gt; &lt;/style&gt;</code> element which allows for CSS to be created and applied directly in the HTML document. These tags are used within the <code>&lt;head&gt; &lt;/head&gt;</code> tags, like so:
+          <img src="../images/css_internalStylesheet.jpg" alt="Code snippet showing how to apply the style tags in a HTML document.">
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          External Stylesheet
+        </div>
+        <div class="reference-section-body">
+          It's best to store CSS in an external stylesheet to avoid mixing HTML and CSS together. <code>.css</code> is the file format for external stylesheets.<br>
+          To link an external stylesheet, it can be done with the following HTML:
+          <img src="../images/css_externalStylesheet.jpg" alt="Code snippet showing how to apply the style tags in a HTML document.">
+          Like the anchor element, <code>link</code> uses the <code>href</code> attribute which points to where the CSS file is. The <code>rel</code> attribute describes the relationship between the HTML and CSS file.
+          As a stylesheet is being used, the value <code>rel="stylesheet"</code> needs to be used. 
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Selectors - Type
+        </div>
+        <div class="reference-section-body">
+          Declarations are a fundamental part of CSS as they apply the style to a selected element. The <em>selector</em> is used to target specific HTML tags, then the declaration applies the style.
+          <img src="../images/css_selectorsType.jpg" alt="Code snippet showing a CSS ruleset using a specific type selector.">
+          The snippet above will apply the colour red to all <code>p</code> elements.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Selectors - Universal
+        </div>
+        <div class="reference-section-body">
+          The universal selector in CSS applied the declarator to all HTML elements. The universal selector is the asterisk *.
+          <img src="../images/css_selectorsUniversal.jpg" alt="A screenshot showing a CSS rule using the universal selector.">
+          The above rule will apply to all HTML elements, meaning that each element will have the Verdana font as well as a black border which is 2 pixels thick.  
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Selectors - Classes
+        </div>
+        <div class="reference-section-body">
+          In HTML, there is a <code>class</code> attribute. Creating a class in CSS is done by putting a period before the selector.
+          <img src="../images/css_classes.jpg" alt="A screenshot showing how a CSS class is used within a HTML element.">
+          Using <code>.c-heading</code> in any HTML <code>class</code> attribute will apply the chosen CSS class.<br><br>
+            Multiple classes can be added to the <code>class</code> attribute to create unique styles.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Selectors - ID
+        </div>
+        <div class="reference-section-body">
+          At times, single elements may need to be selected. This can be done in HTML by using the <code>id=""</code> attribute. In CSS, to select the ID, the hash (#) is used in the selector.
+          <img src="../images/css_id.jpg" alt="A screenshot showing how a CSS ID is used within a HTML element.">
+          Best practise is to use IDs when only a specific ruleset needs to be applied to an element and not used on multiple elements. Whilst IDs can be used on multiple elements, it's best to use classes for this instead. 
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Selectors - Attribute
+        </div>
+        <div class="reference-section-body">
+          CSS has an <em>attribute selector</em> which allows specific HTML attributes to be selected. This can be done by wrapping the selector in square brackets [ ].
+          <img src="../images/css_attributeSelector.jpg" alt="A screenshot showing how the attribute selector is used in CSS">
+          The above example will only apply the style to any HTML tags that have the <code>href</code> attribute applied.<br><br>
+          Types and/or attribute values can also be specified too.
+          <img src="../images/css_attributeSelector2.jpg" alt="A screenshot showing how the attribute selector can be used to target specific text.">
+          The above example will target the <code>img</code> tag and match the text within the <code>src</code> attribute. In this example, the images will be sized based on their rule.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Pseudo-Class
+        </div>
+        <div class="reference-section-body">
+          Elements on a webpage can change depending on user behaviour. For example, hovering over text may change it's appearance. A good example is when a user hovers over a link on a website and the background image may change to a darker or lighter colour.
+          Pseudo-classes are applied to rulesets by adding a colon (:) after the selector and adding the name, which are:
+          <ul class="no-style">
+            <li class="no-style"><code>:hover</code> -> Changes the behaviour when a user hovers their mouse over the element</li>
+            <li class="no-style"><code>:visited</code> -> Changes the behaviour when a user has visited a link</li>
+            <li class="no-style"><code>:disabled</code> -> Will disable the input or user interactbility on a certain field/button/text box</li>
+            <li class="no-style"><code>:active</code> -> Changes the behaviour of the chosen element when the user has activated it (I.E; by clicking and holding)</li>
+          </ul>  
+          <img src="../images/css-pseudoClasses.jpg" alt="A screenshot showing an example on how to apply CSS pseudo classes to a rule">
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Specificity
+        </div>
+        <div class="reference-section-body">
+          Specificity is the order by which the browser decides which CSS styles will be displayed. The best practice in CSS is to style elements while using the lowest degree of specificity to that if an element needs a new style, it's easily overridden.
+          IDs are the most specific selector in CSS, followed by class, then type. Consider the following HTML and CSS below
+          <img src="../images/css_specificity.jpg" alt="A screenshot showing specificity in CSS">
+          The colour of the text in the example above will be set to blue. This is because the class selector is more specific then the type selector.
+          If an ID attribute had been set and set to orange, the text would change to orange as the ID if more specific than the class.<br><br>
+          To make styles easy to edit, it's best to use the type selector (element name), if possible. If not, use a class selector. If that's not specific enough, use the ID.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Chaining
+        </div>
+        <div class="reference-section-body">
+          When writing CSS rules, it's possible to require an HTML element to have two or more CSS selectors at the same time. This is achieved by combining multiple selectors which is called <em>chaining</em>. 
+          For example, if there was a special class for <code>&lt;h1&gt;</code> elements, the CSS would look like
+          <img src="../images/css_chaining.jpg" alt="A screenshot showing chaining in CSS">
+          This means that only <code>&lt;h1&gt;</code> elements with the class <code>special</code> would have the style applied. If a <code>&lt;p&gt;</code> element had the attribute class set to special, the style would not be applied.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Descendant Combinator
+        </div>
+        <div class="reference-section-body">
+          In addition to chaining selectors to select elements, CSS supports selecting elements that are nested within other HTML elements, known as descendants.
+          Considering the following:
+          <img src="../images/css_descendantsCombinator.jpg" alt="A screenshot showing how to use the CSS Descendant combinator.">
+          The nested <code>&lt;li&gt;</code> elements are descendants of the <code>&lt;ul&gt;</code> element and can be selected with the <em>descendant combinator.</em>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Multiple Selectors
+        </div>
+        <div class="reference-section-body">
+          To make CSS more concise, it's possible to add CSS styles to multiple CSS selectors at once. This avoid writing repetitive code. 
+          The following code has repetitive style attributes
+          <img src="../images/css_multipleSelectorsRepetitive.jpg" alt="A screenshot showing repetitive code in CSS.">
+          To avoid writing <code>font-family: 'Courier New', Courier, monospace;</code> twice, they can be separated by using a comma to apply the same style to both.
+          <img src="../images/css_multipleSelectorsConcise.jpg" alt="A screenshot showing concise code in CSS using multiple selectors for a single ruleset.">
+        </div>
+      </div>
+
+      <div class="c_section-title">
+        <h1>Visual Rules</h1>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Font Family
+        </div>
+        <div class="reference-section-body">
+          To change the typeface of text on a web page, the <code>font-family</code> property is used.
+          <img src="../images/css_visualRules_fontFamily.jpg" alt="A screenshot showing the font family property in CSS.">
+          The above CSS rule will change all <code>h1</code> elements to the font specified.<br>
+          A few things to note when choosing fonts;
+          <ul class="no-style">
+            <li class="no-style">The font specified must be installed on the users computer or must be downloaded with the site</li>
+            <li class="no-style">Web Safe Fonts are a group of fonts supported across most browsers and operating systems</li>
+            <li class="no-style">If web safe fonts are not being used, the chosen font may not appear the same between browsers and operating systems</li>
+            <li class="no-style">When the name of a typeface consists of more than one word, it's best practice to enclose them in quotes (as seen above).</li> 
+          </ul>
+          Typography is explained further <a href="#typography">here</a>.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Font Size
+        </div>
+        <div class="reference-section-body">
+          To change the font size, <code>font-size:</code> property is used.
+          <img src="../images/css_visualRules_fontSize.jpg" alt="A screenshot showing the font size property in CSS.">
+          This will set all <code>&lt;p&gt;</code> elements font size to be 18 pixels big.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Text Align
+        </div>
+        <div class="reference-section-body">
+          By default, text will always appear on the left of the container it is in. The <code>text-align:</code> property is used to change how text is aligned within it's container. 
+          The property can be set to one of the following:
+          <ul class="no-style">
+            <li class="no-style"><code>left</code> -> Aligns text to the left of its parent</li>
+            <li class="no-style"><code>center</code> -> Centres the text of its parent</li>
+            <li class="no-style"><code>right</code> -> Aligns the text to the right of its parent</li>
+            <li class="no-style"><code>justify</code> -> Spaces out text in order to align with the left and right sides of the parent</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Foreground, Background colour and Opacity
+        </div>
+        <div class="reference-section-body">
+          The best way to remember what the foreground and background colour affects, if the foreground would affect the text in a container, whilst the background will colour the elements background which doesn't affect the text.
+          <img src="../images/css_visualRules_foreground_background.jpg" alt="A screenshot showing the background colour and colour properties in CSS">
+          The ruleset above will make all the text grey and the background black.<br><br>
+          Opacity is the measurement of how transparent something is. CSS has the <code>opacity:</code> property which controls this. This property can only contain values between 0 and 1. 1 means 100% opacity, 0 means 0% opacity, and 0.5 means 50% opacity. 1 is visible, 0 is invisible.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Background Image
+        </div>
+        <div class="reference-section-body">
+          CSS has the ability to change the background of an element. This is achieved by the <code>background-image</code> property.
+          <img src="../images/css_visualRules_backgroundImage.jpg" alt="A screenshot showing the background image property in CSS.">
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          The <code>!important</code> property
+        </div>
+        <div class="reference-section-body">
+          CSS has an <code>!important</code> property can be applied to specific declarations, instead of full rules. This will override any style no matter how specific. Once <code>!important</code> is used, it's very hard to override.
+          The syntax of <code>!important</code> looks like this:
+          <img src="../images/css_visualRules_importantProperty.jpg" alt="A screenshot showing the important property in CSS">
+          As <code>!important</code> has been used on the <code>&lt;p&gt;</code> selector, all <code>&lt;p&gt;</code> elements will appear blue, even though <code>.main p</code> is more specific. 
+        </div>
+      </div>
+
+      <div class="c_section-title">
+        <h1>The Box Model</h1>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          The Box Model
+        </div>
+        <div class="reference-section-body">
+          The box model comprises the set of properties that define parts of an element that take up space on a web page. The model includes the content area size (width & height) and the elements <em>padding</em>, <em>border</em>, and <em>margin</em>.
+          These properties includes
+          <ul class="no-style">
+            <li class="no-style"><code>width & height</code> -> The width and height of the content area</li>
+            <li class="no-style"><code>padding</code> -> The amount of space between the content area and the border</li>
+            <li class="no-style"><code>border</code> -> The thickness of the border surrounding the content area and padding</li>
+            <li class="no-style"><code>margin</code> -> The amount of space between the border and the outside edge of the element</li>
+          </ul>  
+          <img src="../images/css_boxModel.jpg" alt="A screenshot showing the box model">
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Width and Height
+        </div>
+        <div class="reference-section-body">
+          An elements content has two dimensions, width and height. By default, the dimensions of a HTML box are set to hold the raw contents of the box.
+          <img src="../images/css_boxModel_width-height.jpg" alt="A screenshot showing the width and height property in a CSS rule">
+          The ruleset above will set the width and height to all <code>&lt;p&gt;</code> elements to 80 pixels in height and 240 pixels in width. If the width and height are set to pixels, it will appear the same on all devices.
+          An element that fills a laptop screen may <abbr title="Defines how a block level element should handle content that goes beyond its boundaries.">overflow</abbr> on a mobile device.  
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Borders
+        </div>
+        <div class="reference-section-body">
+          A border is a line that surrounds an element, like a frame around a painting. Borders can be set with a specific width, style, and colour.  
+          <ul class="no-style">
+            <li class="no-style"><code>width</code> -> The thickness of the border. Can be set in pixels or in one of the following keywords: <code>thin, medium, thick</code></li>
+            <li class="no-style"><code>style</code> -> The design of the border. Browsers can render any of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style#values" class="c-standard">10 different styles</a>. Some include <code>none, dotted, solid</code></li>
+            <li class="no-style"><code>color</code> -> The colour of the border. Web browsers can render colours using a few different formats, including 140 built in colours.</li>
+          </ul>
+          <img src="../images/css_boxModel_borders.jpg" alt="A screenshot showing how to set a border around an element in CSS">
+          The image above shows how the border property can be used.<br><br>
+          By default, the border is set to <code>medium none color</code>, where colour if the current colour of the element. If width, style, or colour are not set, the browser assigns default values.
+          <img src="../images/css_boxModel_borderDefaults.jpg" alt="A screenshot showing a CSS ruleset of a border without the colour value being assigned">
+          In the example above, the border style is set to solid and the colour is set to black. The thickness is not set, so defaults to medium.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Border Radius
+        </div>
+        <div class="reference-section-body">
+          When creating a border, by default the border will be square. CSS allows the borders corners to be modified using the <code>border-radius</code> property.
+          <img src="../images/css_boxModel_borderRadius.jpg" alt="A screenshot showing use of the border radius property in CSS">
+          The ruleset above will set all four corners of the border to a radius of 5 pixels (if the same curvature that a circle with a radius of 5 pixels would have).<br><br>
+          With CSS, a circle can be created by setting an element to the same width and height, then setting the radius equal to half of the width of the box, which would be 50%.
+          <img src="../images/css_boxModel_borderRadiusCircle.jpg" alt="A screenshot showing a CSS ruleset which creates a circle.">
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Padding
+        </div>
+        <div class="reference-section-body">
+          The space between the contents of a box and the borders of a box is known as <em>padding</em>. Padding is like the space between a picture and the frame surrounding it. This space can be modified by using the <code>padding</code> property.
+          <img src="../images/css_boxModel_padding.jpg" alt="A screenshot showing a CSS ruleset that modifies the padding">
+          The ruleset above will put 10 pixels of padding between the content of the paragraph and the border on all 4 sides. This property is often used to expand the background colour and make the content look less cramped.
+          Each side of the padding can be specified using the following properties:
+          <ul class="no-style">
+            <li class="no-style"><code>padding-top</code></li>
+            <li class="no-style"><code>padding-right</code></li>
+            <li class="no-style"><code>padding-bottom</code></li>
+            <li class="no-style"><code>padding-left</code></li>
+          </ul>  
+          Each property affects the padding on only one side of the box's content, giving more flexibility in customization.<br><br> 
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Padding Shorthand
+        </div>
+        <div class="reference-section-body">
+          Defining the left, right, bottom, and top of padding can be in the padding property. A declaration that uses multiple properties as values is known as <em>shorthand property</em>.
+          These can be specified in various ways:
+
+          <b>With 4 values:</b>
+          <img src="../images/css_boxModel_paddingFourVaules.jpg" alt="A screenshot showing the padding property with 4 values">
+          In the above, the four values correspond to the amount of padding on each side in a <b>clockwise direction</b>. In order, it specifies them like so:
+          <ul class="no-style">
+            <li class="no-style"><code>padding-top = 6px</code></li>
+            <li class="no-style"><code>padding-right = 11px</code></li>
+            <li class="no-style"><code>padding-bottom = 4px</code></li>
+            <li class="no-style"><code>padding-left = 9px</code></li>
+          </ul>
+          <b>With 3 values:</b>
+          <img src="../images/css_boxModel_paddingThreeValues.jpg" alt="A screenshot showing the padding property with 3 values">
+          If the left and right side of the content can be equal, the padding shorthand property allows for 3 values to be specified. This method specifies them like so:
+          <ul class="no-style">
+            <li class="no-style"><code>padding-top = 5px</code></li>
+            <li class="no-style"><code>padding-left</code> and <code>padding-right = 10px</code></li>
+            <li class="no-style"><code>padding-bottom = 20px</code></li>
+          </ul>
+          <b>With 2 values:</b>
+          <img src="../images/css_boxModel_paddingTwoValues.jpg" alt="A screenshot showing the padding property with 2 values">
+          If the top and bottom, left and right can be equal, 2 values can be specified. This method specifies them like so:
+          <ul class="no-style">
+            <li class="no-style"><code>padding-top</code> and <code>padding-bottom = 5px</code></li>
+            <li class="no-style"><code>padding-left</code> and <code>padding-right = 50px</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Margin
+        </div>
+        <div class="reference-section-body">
+          The margin refers to the space directly outside of the box. The <code>margin</code> property is used to specify the size of this space.
+          <img src="../images/css_boxModel_marginProperty.jpg" alt="A screenshot showing the margin property">
+          The ruleset above will place 20 pixels of space on the outside of the paragraphs box on all four sides. This means that another HTML element cannot come within 20 pixels of the paragraphs border.
+          The same with padding, the <code>margin</code> property has different names too. They can be applied like the padding with shorthand properties following the same order.
+          <ul class="no-style">
+            <li class="no-style"><code>margin-top</code></li>
+            <li class="no-style"><code>margin-right</code></li>
+            <li class="no-style"><code>margin-bottom</code></li>
+            <li class="no-style"><code>margin-left</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          The <code>auto</code> value
+        </div>
+        <div class="reference-section-body">
+          The <code>margin</code> property allows content to be centred. However, there are a few syntax requirements. 
+          <img src="../images/css_boxModel_marginAuto.jpg" alt="A screenshot showing the auto value used along side the margin property">
+          The ruleset above will centre the divs in their containing elements. The 0 sets the top and bottom margins to 0 pixels. The <code>auto</code> value instructs the browser to adjust the left and right margins until the element is centred within its containing element.<br><br>
+          To centre an element, the width <b>must be set</b> for that element. Otherwise, the width of the div will automatically be set to the full width of its containing element, like the <code>body</code> for example.
+          It's not possible to centre an element that takes up the full width of the page since the width of the page can change due to display and/or browser window size.<br><br>
+          The ruleset above sets the width to 400 pixels which is less than the width of most displays. This will centre the div within its containing element that is greater than 400 pixels wide.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Margin Collapse
+        </div>
+        <div class="reference-section-body">
+          With margins, there is a term called <em>margin collapse</em>. Horizontal margins (left and right), like padding, are always displayed and added together. For example, if two divs are next to each other, they will be as far apart as the sum of their adjacent margins.
+          <img src="../images/css_boxModel_marginCollapse.jpg" alt="A screenshot showing the CSS properties margin-right and margin-left.">
+          The rulesets above will place each div next to each other with a 40 pixel gap between them.<br><br>
+          Unlike horizontal margins, vertical margins do not add. Instead, the larger of the two vertical margins sets the difference between adjacent elements.
+          <img src="../images/css_boxModel_marginVerticalCollapse.jpg" alt="A screenshot showing the CSS properties margin-top and margin-bottom which will result in a margin collapse.">
+          The vertical margin between <code>#div-one</code> and <code>#div-two</code> elements is 40 pixels. Although the sum is 60 pixels, the margin collapses so the spacing is only dependant on <code>#div-two</code> top margin.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Minimum and Maximum Height and Width
+        </div>
+        <div class="reference-section-body">
+          Because web pages can be viewed through different screen sizes, the content on the web page can suffer from those changes in size. To avoid this problem, CSS offers two properties that can limit how narrow or how wide an elements box can be. The same applies to the height too.
+          <ul class="no-style">
+            <li class="no-style"><code>min-width</code> -> Sets the minimum width of an elements box</li>
+            <li class="no-style"><code>max-width</code> -> Sets the maximum width of an elements box</li>
+            <li class="no-style"><code>min-height</code> -> Sets the minimum height of an elements box</li>
+            <li class="no-style"><code>max-height</code> -> Sets the maximum height of an elements box</li>
+          </ul>
+          If these properties are set too low to contain the content within the element, the content may be difficult to see. This is discussed next.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Overflow
+        </div>
+        <div class="reference-section-body">
+          All of the components of the box model comprise an elements size. For example, an image that has the following dimensions is 364 pixels wide and 244 pixels tall.
+          <ul class="no-style">
+            <li class="no-style">300 pixels wide</li>
+            <li class="no-style">200 pixels tall</li>
+            <li class="no-style">10 pixels padding on the left and right</li>
+            <li class="no-style">10 pixels padding on the top and bottom</li>
+            <li class="no-style">2 pixels border on the left and right</li>
+            <li class="no-style">2 pixels border on the top and bottom</li>
+            <li class="no-style">20 pixels margin on the left and right</li>
+            <li class="no-style">10 pixels margin on the top and bottom</li>
+          </ul>
+          The total dimensions (364x244) are calculated by adding all of the vertical dimensions together and all of the horizontal dimensions together. Sometimes, these components result in an element that is larger than the parents containing area.
+          How can it be ensured that we can view all of an element that is larger than its parent's containing area?<br>
+          The <code>overflow</code> property controls what happens to content that overflows outside of its box. These are the commonly used values.
+          <ul class="no-style">
+            <li class="no-style"><code>hidden</code> -> Any content that overflows will be hidden from view</li>
+            <li class="no-style"><code>scroll</code> -> A scrollbar will be added to the elements box so that the rest of the content can be viewed by scrolling</li>
+            <li class="no-style"><code>visible</code> -> The overflowed content will be displayed outside of the containing element. This is the default value.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Resetting Defaults
+        </div>
+        <div class="reference-section-body">
+          All major web browsers have a default stylesheet they use in absence of an external stylesheet. These default stylesheets are known as <em>user agent stylesheets.</em> In this case, the term user agent is a technical term for browsers.<br><br>
+          User agent stylesheets often have default CSS rules that set default values for padding and margin. This affects how the browser displays HTML element, which can make it difficult for a developer to design or style a web page. Many developers choose to set these default values so that they can work with a clean slate.
+          <img src="../images/css_boxModel_resettingDefaults.jpg" alt="A screenshot of a CSS ruleset using the asterisk selector to set defaults to a web page">
+          The ruleset above resets the margin and padding of all HTML elements. It is often the first CSS rule in an external stylesheet. As both of the properties are set to 0, no unit of measurement is required.
+        </div>
+      </div>  
+      
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Visibility
+        </div>
+        <div class="reference-section-body">
+          Elements on a HTML page can be hidden from view with the <code>visibility</code> property. The <code>visibility</code> property can be set to one of the following values:
+          <ul class="no-style">
+            <li class="no-style"><code>hidden</code> -> Hides the element</li>
+            <li class="no-style"><code>visible</code> -> Displays an element</li>
+            <li class="no-style"><code>collapse</code> -> Collapses an element</li>
+          </ul>  
+          <img src="../images/css_boxModel_visibility.jpg" alt="A screenshot showing a CSS ruleset making use of the visibility property">
+          The example above will hide the 'Donate' option from the web page. However, this only hides the option when viewing the web page. Looking at the pages source will still show the option. 
+          Further more, the web page will only hide the contents of the element and will still leave an empty space where the element is intended to be.<br><br>
+          
+        </div>
+      </div> 
+
     </main>
 
     <footer>
