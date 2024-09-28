@@ -223,7 +223,7 @@
             <li class="no-style">If web safe fonts are not being used, the chosen font may not appear the same between browsers and operating systems</li>
             <li class="no-style">When the name of a typeface consists of more than one word, it's best practice to enclose them in quotes (as seen above).</li> 
           </ul>
-          Typography is explained further <a href="#typography">here</a>.
+          Typography is explained further <a href="#typography" class="c-standard">here</a>.
         </div>
       </div>
 
@@ -263,6 +263,8 @@
           <img src="../images/css_visualRules_foreground_background.jpg" alt="A screenshot showing the background colour and colour properties in CSS">
           The ruleset above will make all the text grey and the background black.<br><br>
           Opacity is the measurement of how transparent something is. CSS has the <code>opacity:</code> property which controls this. This property can only contain values between 0 and 1. 1 means 100% opacity, 0 means 0% opacity, and 0.5 means 50% opacity. 1 is visible, 0 is invisible.
+          <br><br>
+          Colour is described in more detail <a href="#css-improved-styling" class="c-standard">here</a>.
         </div>
       </div>
 
@@ -521,10 +523,505 @@
           </ul>  
           <img src="../images/css_boxModel_visibility.jpg" alt="A screenshot showing a CSS ruleset making use of the visibility property">
           The example above will hide the 'Donate' option from the web page. However, this only hides the option when viewing the web page. Looking at the pages source will still show the option. 
-          Further more, the web page will only hide the contents of the element and will still leave an empty space where the element is intended to be.<br><br>
-          
+          Further more, the web page will only hide the contents of the element and will still leave an empty space where the element is intended to be.<br><br>      
         </div>
       </div> 
+
+      <div class="c_section-title">
+        <h1>Changing The Box Model</h1>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Why change the box model?
+        </div>
+        <div class="reference-section-body">
+          The box model consists of, box dimensions, borders, padding, and margin. The box model has limitations regarding the box dimensions. The limitation is best shown with the example below.
+          <img src="../images/css_changingBoxModel.jpg" alt="A screenshot showing the HTML, CSS and web page which a basic rule set with, border, height, width, and padding applied">
+          Under the current box model, the border thickness and padding will affect the dimensions of the box. 10 pixels of padding increases the height of the box to 220 pixels and the width to 320 pixels.
+          Next the 1 pixel border increases the height to 222 pixels and width to 322 pixels. Under this box model, the border thickness and padding are added to the overall dimensions of the box. This makes it difficult to accurately size a box.
+          Overtime, this can make all of the web pages content difficult to position and manage.
+        </div>
+      </div> 
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Box Model: <code>content-box</code>
+        </div>
+        <div class="reference-section-body">
+          Many properties in CSS have a default value and don't have to be explictly set. For example, the default <code>font-weight</code> is normal, but this property-value pair is not typically specified in a stylesheet.
+          The same can be said about the box model that browsers assume. In CSS, the <code>box-sizing</code> property controls the type of box model the browser should use when interpreting a web page.
+          The default value for <code>box-sizing</code> is <code>content-box</code>. This is the same box model that is affected by border thickness and padding.
+          <img src="../images/css_changingBoxModel_contentBox.jpg" alt="A screenshot showing how the size of an element is calculated based on its content, padding, borders, and margin">
+        </div>
+      </div> 
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Box Model: <code>border-box</code>
+        </div>
+        <div class="reference-section-body">
+          Fortunately, the entire box model can be reset by specifiying <code>box-sizing: border-box</code><br>
+          <img src="../images/css_changingBoxModel_borderBox.jpg" alt="A screenshot showing a CSS ruleset using the box sizing property and the value set to border box">
+          The example above resets the box models to <code>border-box</code> for all HTML elements. The new model avoids the dimensional issues that exist in the former model previously discussed.<br><br>
+          In this box model, the height and width of the box will remain fixed. The border thickness and padding will be included inside of the box, which means the overal dimensions of the box do not change.
+          <img src="../images/css_changingBoxModel_borderBoxExample.jpg" alt="A screenshot showing the difference between the content box and border box values for the box sizing property">
+          The heading on the left, has the default <code>content-box</code> property set for <code>box-sizing</code> as one isn't explictly defined. The heading on the right has <code>box-sizing: border-box;</code> set.
+          Both the width and height are the same for both headings. Setting <code>box-sizing</code> to <code>border-box</code>, the border and padding values are subtracted from the size of the content box, keeping the size of the box the same.
+          Whereas <code>content-box</code> adds the border and padding onto the size of the content box.<br><br>
+          Here is how the differences are calculated:<br>
+          <b>#headingOne</b><br>
+          <code>height: 200 + (2 * 10) + (2 * 1) = 222</code><br>
+          <code>width: 300 + (2 * 10) + (2 * 1) = 322</code><br>
+          <b>#headingTwo</b><br>
+          <code>height: 200 - (2 * 10) - (2 * 1) = 178</code><br>
+          <code>width: 300 - (2 * 10) - (2 * 1) = 278</code><br><br>
+          <b>Note:</b> when viewing this in the browsers development tools, the elements inspector shows the border as 0.667 instead of 1.
+          <img src="../images/css_changingBoxModel_elementsInspector.jpg" alt="A screenshot showing the elements inspector within Google Chrome">
+          This is because higher resolution monitors (such as 4k), will scale down to make sure the elements display correctly. This is calculated like so <code>1 / 1.5 = 0.667</code>. Some browsers will often try antiliasing lines to improve rendering quality. 
+        </div>
+      </div>
+
+      <div class="c_section-title">
+        <h1>Display and Positioning</h1>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Flow of HTML
+        </div>
+        <div class="reference-section-body">
+          A browser will render elements of a HTML document that has no CSS from left to right, top to bottom, in the same way they exist in the document. CSS inclues properties that change
+          how a browser positions elements. These properties specify where an element is located on a page, if the element can share lines with other elements, and other related attributes.<br><br>
+          Below are 5 properties which adjust the position of HTML elements:
+          <ul class="no-style">
+            <li class="no-style"><code>position</code></li>
+            <li class="no-style"><code>display</code></li>
+            <li class="no-style"><code>z-index</code></li>
+            <li class="no-style"><code>float</code></li>
+            <li class="no-style"><code>clear</code></li>
+          </ul>  
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Position
+        </div>
+        <div class="reference-section-body">
+          Looking at the block-level elements in the image below:
+          <img src="../images/css_displayAndPosition_blockLevelElements.jpg" alt="A screenshot showing basic block level elements in HTML">
+          Block-level elements like the boxes above create a block the full width of their parent elements, and they prevent other elements from appearing in the same horizontal space.
+          The block-level elements in the image above take up their own line of space and therefore don't overlap each other.<br><br>
+          The default position of an element can be changed by setting its <code>position</code> in CSS. The <code>position</code> property can have any one of the five values:
+          <ul class="no-style">
+            <li class="no-style"><code>static</code> (default)</li>
+            <li class="no-style"><code>relative</code></li>
+            <li class="no-style"><code>absolute</code></li>
+            <li class="no-style"><code>fixed</code></li>
+            <li class="no-style"><code>sticky</code></li>
+          </ul> 
+          If the default positioning to preferred, the <code>position</code> property does not need to be set.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Position: Relative
+        </div>
+        <div class="reference-section-body">
+          The <code>relative</code> value allows the element to be <b>relative</b> to its default static position.  
+          <img src="../images/css_displayAndPosition_relativeRuleset.jpg" alt="A screenshot showing the position property and the relative value">
+          Although the rule above instructs the browser to expect a relative position of the green-box element, it does not specify where the element should be positioned.
+          This is done by accompanying the <code>position</code> declaration with one or more of the following <i>offset</i> properties that will move the element away from its default static position:
+          <ul class="no-style">
+            <li class="no-style"><code>top</code> -> moves the element down from the top</li>
+            <li class="no-style"><code>bottom</code> -> moves the element up from the bottom</li>
+            <li class="no-style"><code>left</code> -> moves the element away from the left side</li>
+            <li class="no-style"><code>right</code> -> moves the element away from the right side</li>
+          </ul>
+          These can be specified in pixels, ems, or percentages among others to dial exactly how far the element is to move. 
+          <b>NOTE: these offset properties will not work if the elements position is <code>static</code></b>.<br><br>
+          <img src="../images/css_displayAndPosition_relativePositioning.jpg" alt="An example on how the relative value allows elements to be offset with the top and left properties set.">
+          The rulesets above show how setting the position to relative and using top and left can be used to move the element on the web page.
+          Offsetting the relative element will not affect the positioning of other elements.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Position: Absolute
+        </div>
+        <div class="reference-section-body">
+          When an elements position is set to <code>absolute</code>, all other elements will ignore the element and act like it is not present on the page. The element will be positioned relative to its closest positioned parent element, while the offset properties can be used to determine the final position from there.
+          <img src="../images/css_displayAndPosition_absolutePositioning.jpg" alt="A screenshot showing how 2 elements are overlapped with one of their positions being set to absolute.">
+          As the blue box element has been set to absolute, it overlaps the green box. If the blue boxes position was set to relative, the blue box would be placed directly below the green box.  
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Position: Fixed
+        </div>
+        <div class="reference-section-body">
+          Using the <code>fixed</code> value, means that the element will be in a fixed position, meaning it won't move if the user scrolls up or down on the page.  
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Position: Sticky
+        </div>
+        <div class="reference-section-body">
+          Since static and relative positioned elements stay in the normal flow of the document, when a user scrolls the page, these elements will scroll too.
+          Since <code>fixed</code> and <code>absolute</code> positioned elements are removed from the documents flow, when a user scrolls, these elements will stay at their specified offset position.<br><br>
+          The <code>sticky</code> value is another position value that keeps an element in the document flow as the user scrolls, but sticks to a specificed position as the page is scrolled further. This is done by using
+          the <code>sticky</code> value along with the other offset properties.
+          <img src="../images/css_displayAndPosition_stickyPositioning.jpg" alt="A screenshot showing a CSS ruleset with the position set to sticky.">
+          This means that the blue box will remain in view when the user scrolls down the page and will remain 100 pixels from the top of the browser viewport.
+        </div>
+      </div>
+      
+      <div class="reference-section">
+        <div class="reference-section-title">
+          z-index
+        </div>
+        <div class="reference-section-body">
+          When boxes on a web page have a combination of different positions, the boxes (and their content) can overlap with each other, making the content difficult to read or consume.
+          <br>
+          The example below, the <code>green-box</code> overlaps the <code>blue-box</code>.
+          <img src="../images/css_displayAndPosition_nozIndex.jpg" alt="A screenshot showing a green box overlapping a blue box as z index property has not been set.">
+          <br><br>
+          The <code>z-index</code> property controls how far back or forward an element should appear on the page when elements overlap. This can be thought as the <i>depth of elements</i>, with deeper element appearing behind shallower elements. 
+          Depending on their values, the integer supplied instructs the browser on the order in which elements should be layered on the page.
+          <img src="../images/css_displayAndPosition_zIndex.jpg" alt="A screenshot showing the blue box overlapping the green box with the z index property set within the green boxes ruleset.">
+          In the example above, the <code>blue-box</code> has the <code>z-index</code> property set to 1. A thing to note, the <code>z-index</code> property does not work on static elements.
+          By default, elements have their <code>z-index</code> set to 0.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Display: Inline
+        </div>
+        <div class="reference-section-body">
+          Every HTML element has a default <code>display</code> value that dictates if it can share horizontal space with other elements. Some elements fill the entire browser from left to right regardless of the size of their content.
+          Other elements only take up as much horizontal space as their content requires and can be directly next to other elements. This section will cover three values for the <code>display</code> property:
+          <ul class="no-style">
+            <li class="no-style"><code>inline</code></li>
+            <li class="no-style"><code>inline-block</code></li>
+            <li class="no-style"><code>block</code></li>
+          </ul>
+          The default <code>display</code> for some elements, such as <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code>, and <code>&lt;a&gt;</code> are called <i>inline</i>. Inline elements have a box that wraps tightly around their content, only taking up the amount of space necessary ti display their content and not requiring a new line after each element.
+          The height and width of these elements cannot be specified in CSS. For example, the text of an anchor tag will, by default, be displayed on the same line as the surrounding text and it will only be as wide as necessary to contain its content. <code>inline</code> elements cannot be altered in size with the <code>width</code> and <code>height</code> properties.
+          <br><br>
+          <img src="../images/css_displayAndPosition_inlineElements.jpg" alt="A screenshot showing HTML markup of inline elements.">
+          The example above, all of the elements will be displayed 'inline' meaning they will appear on the same line.
+          <br><br>
+          The CSS <code>display</code> property provides the ability to make any element an inline element. This includes elements that are not inline by default such as paragraphs, divs, and headings.
+          <img src="../images/css_displayAndPosition_inlineRule.jpg" alt="A screenshot showing the display property set to inline.">
+          The CSS rule above will change the display of all <code>h1</code> elements to be inline. The browser will render <code>h1</code> elements on the same line as other inline elements immediately before or after them.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Display: Block
+        </div>
+        <div class="reference-section-body">
+          Some elements are not displayed in the same line as the content around them. These are called <i>block-level elements</i>. These elements fill the entire width of the page by default, but their width property can be set.
+          Unless otherwise specified, they are the heigh necessary to accommodate their content.
+          <br><br>
+          Elements that are block-level by default are all heading elements (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>), <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, and <code>&lt;footer&gt;</code>. For a complete list, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Block-level_content" class="c-standard">click here</a>.
+          To make an element block (if not by default), using the <code>display: block;</code> property and value will make them elements block.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Display: Inline-Block
+        </div>
+        <div class="reference-section-body">
+          Inline-block display combines both from inline and block elements. Inline-block elements can appear next to each other and can specify their own dimensions using the <code>width</code> and <code>height</code> properties. 
+          <img src="../images/css_displayAndPosition_inlineBlockElements.jpg" alt="A screenshot showing using the display property with the value inline block.">
+          The CSS ruleset above puts all the divs onto the same line.  
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Float
+        </div>
+        <div class="reference-section-body">
+          <!-- TODO: Insert a hyperlink once CSS Grids and Flexboxes are covered -->
+          The <code>float</code> property is commonly used for wrapping text around an image. <b>Note: moving elements left or right for layout purposes is better suited for tools like CSS Grid and flex box, which is discussed later on.</b>  
+          The <code>float</code> property is often set using one of the values:
+          <ul class="no-style">
+            <li class="no-style"><code>left</code> -> moves, or floats, elements as far left as possible</li>
+            <li class="no-style"><code>right</code> -> moves elements as far right as possible</li>
+          </ul>
+          <img src="../images/css_displayAndPosition_floatProperty.jpg" alt="A screenshot showing a ruleset containing the float property which has the value right.">
+          In the example, <code>float</code> is used on the <code>#orange-section</code> which puts it on the right. This works for static and relative positioned elements. 
+          <img src="../images/css_displayAndPosition_floatedElement.jpg" alt="A screenshot showing how the orange section element has the float right set.">
+          Floated elements must have a <code>width</code> specified. Otherwise, the element will assume the full width of its containing element and changing the float property won't show any results.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Clear
+        </div>
+        <div class="reference-section-body">
+          The <code>float</code> property can be used to float multiple elements at once. However, when multiple floated elements have different heights, it can affect their layout on a page. Specifically, elements can "bump" into each other and not allow other elements to properly move to the left or right.
+          <br>
+          The <code>clear</code> property specifies how elements should behave when they bump into each other on the page. It can take one of the following values:
+          <ul class="no-style">
+            <li class="no-style"><code>left</code> -> the left side of the element will not touch any other element within the same containing element</li>
+            <li class="no-style"><code>right</code> -> the right side of the element will not touch any other element within the same containing element</li>
+            <li class="no-style"><code>both</code> -> neither side of the element will touch any other element within the same containing element</li>
+            <li class="no-style"><code>none</code> -> the element can touch either side</li>
+          </ul>  
+          <img src="../images/css_displayAndPosition_clearProperty.jpg" alt="A screenshot showing how the clear property affects elements if they have the float property set.">
+          In the example above, all <code>&lt;div&gt;</code> elements on the page are floated to the left. The element with class <code>special</code> did not move all the way left because a taller <code>div</code> blocked its positioning. 
+          By setting its clear property to left, the special div will be moved all the way to the left side of the page. 
+        </div>
+      </div>
+
+      <div class="c_section-title">
+        <h1>Improved Styling with CSS</h1>
+      </div>
+
+      <div class="reference-section" id="css-improved-styling">
+        <div class="reference-section-title">
+          Introduction to colour
+        </div>
+        <div class="reference-section-body">
+          CSS supports a wide variety of colours. Such as named colours like blue, green, red, limegreen, etc.
+          The metric system allows developers to take advantage of the whole colour spectrum that browsers support.
+          <br><br>
+          Colours in CSS can be described in three ways:
+          <ul class="no-style">
+            <li class="no-style">Named Colours -> English words that described the colour (blue, green, cyan, lime, etc) also called keyword colours</li>
+            <li class="no-style">RGB -> Numeric values that describe the mixture of red, green, and blue</li>
+            <li class="no-style">HSL -> Numeric values that describe a mixture of hue, saturation, and lightness</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Introduction to colour
+        </div>
+        <div class="reference-section-body">
+          CSS supports a wide variety of colours. Such as named colours like blue, green, red, limegreen, etc.
+          The metric system allows developers to take advantage of the whole colour spectrum that browsers support.
+          <br><br>
+          Colours in CSS can be described in three ways:
+          <ul class="no-style">
+            <li class="no-style">Named Colours -> English words that described the colour (blue, green, cyan, lime, etc) also called keyword colours</li>
+            <li class="no-style">RGB -> Numeric values that describe the mixture of red, green, and blue</li>
+            <li class="no-style">HSL -> Numeric values that describe a mixture of hue, saturation, and lightness</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Foreground VS Background
+        </div>
+        <div class="reference-section-body">
+          CSS has two ways of displaying colour within an element. These are <code>color</code> and <code>background-color</code>. 
+          <code>color</code> will colour the contents of an element, such as text. <code>background-color</code> will colour the background of an element, leaving the foreground untouched.
+          <img src="../images/css_improvedStyling_color.jpg" alt="A screenshot showing the colour and background colour properties in CSS.">
+          The ruleset above will set the contents to red and the background to dark red.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Hexadecimal
+        </div>
+        <div class="reference-section-body">
+          Colours in CSS can be represented by hexadecimal notation. Hexadecimal numbers start with a <code>#</code> followed by either 3 or 6 characters. These values (in order) represent red, green, and blue.
+          Hexadecimal is a base-16 number system which counts from 0 to F. A - F represent the numbers 10 to 15. The number starts at 0 (being 0) and 15 being F.
+          <ul class="no-style">
+            <li class="no-style"><code>darkseagreen: #8FBC8F</code></li>
+            <li class="no-style"><code>sienna:       #A0522D</code></li>
+            <li class="no-style"><code>saddlebrown:  #8B4513</code></li>
+            <li class="no-style"><code>brown:        #A52A2A</code></li>
+            <li class="no-style"><code>black:        #000000 or #000</code></li>
+            <li class="no-style"><code>white:        #FFFFFF or #FFF</code></li>
+            <li class="no-style"><code>aqua:         #00FFFF or #0FF</code></li>
+          </ul> 
+          Back, white, and aqua have both versions, 6 and 3 characters. If the pairs of characters are the same, only 1 character for that colour group needs to be specified. They can be represented at 6 or 3 characters,
+          just 3 characters is a little easier to read. The characters can be written as lower or uppercase.
+          <br>
+          To use hexadecimal in CSS, the name of the colour can be replacd by the hex code
+          <img src="../images/css_improvedStyling_hexadecimal.jpg" alt="A screenshot showing the colour red and dark red represented in hexadecimal notation.">
+          The ruleset above applies red and dark red (as the above) but represented in hexadecimal notation. 
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          RGB Colours
+        </div>
+        <div class="reference-section-body">
+          Another way to represent colours is using <code>rgb()</code>. This uses decimal numbers rather than hexadecimal and looks like this
+          <img src="../images/css_improvedStyling_rgb.jpg" alt="A screenshot using the r g b values in CSS to apply red and dark red."> 
+          Each of the three values represents a colour component which can have any number ranging from 0 - 255. The first number represents how much red is visible, the second represents how much green is visible, and the third how much blue is visible.
+          In general, hex and RGB colour representations are equivalent. When designing a website theme, stick to a single colour format, instead of switching between them.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Hexadecimal and RGB
+        </div>
+        <div class="reference-section-body">
+          Hexadecimal and the RGB colour system can represent many more colours than the small set of CSS named colours. In both hex and RGB, each component has at least 3 values for each colour. 
+          Each can be one of 256 values. Specifically, <code>256 * 256 * 256 = 16,777,216</code>. This is the amount of colours that can be represented using hex or RGB, instead of the 140 named CSS colours.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Hue, Saturation, and Lightness
+        </div>
+        <div class="reference-section-body">
+          Another way of representing colours in CSS is using the <code>hsl()</code> scheme. The syntax is similar to RGB, but has some slight differences.
+          <img src="../images/css_improvedStyling_hsl.jpg" alt="A screenshot showing the HSL property to set the foreground and background colour.">
+          The first value represents the hue. It referrers to an angle on a colour wheel. 
+          <ul class="no-style">
+            <li class="no-style">Red is 0 (or 360)</li>
+            <li class="no-style">Green is 120</li>
+            <li class="no-style">Blue 240</li>
+          </ul>
+          <img src="../images/css_improvedStyling_hslColourWheel.jpg" alt="A screenshot of the CSS HSL colour wheel.">
+          Saturation referrers to the intensity of the colour. As the saturation increases towards 100%, the richer the colour becomes. As it decreases, the colour becomes darker.
+          <br><br>
+          Lightness refers to how light or dark the colour is. Setting the lightless to 50% is normal brightness. Increasing the lightness to 100% makes the colour closer to white, and decreasing towards 0% makes the colour darker, closer to black.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Opacity and Colour
+        </div>
+        <div class="reference-section-body">
+          When 2 colours are overlapped, nothing from the bottom element shows through the top element. Using <code>hsla()</code> allows for a fourth value which controls the alpha values of the colour.
+          Meaning the colours can be made more transparent. The alpha is a decimal value from 0 to 1. If the alpha is set to 0, the colour will be completely transparent. An alpha of 1, the colour will be opaque. Setting the value to 0.5 would mean half transparency.
+          When a colourd alpha is below 1, any colour behind it will blend in. The blending happens for each pixel, no blurring occurs. <code>rgba()</code> is equivalent to <code>hsla()</code>. 
+          <br><br>
+          Hexadecmial also has an alpha value too. By adding an extra 2 characters to the 6-digit representation, will affect the alpha.
+          <br>
+          CSS has a <code>transparent</code> value which is equivalent to <code>rgba(0, 0, 0, 0)</code>
+        </div>
+      </div>
+
+      <div class="reference-section" id="typography">
+        <div class="reference-section-title">
+          Typography
+        </div>
+        <div class="reference-section-body">
+          <h1><code>font-family</code></h1>
+          When specifying a typeface with multiple words, like Times New Roman, it is recommended to use ' ' to group words together.
+          <img src="../images/css_visualRules_fontFamily.jpg" alt="A screenshot showing the font family property in CSS.">
+          There is a slection of fonts that will appear the same across all browsers and operating systems. These fonts are referred to as <i>web safe fonts</i>. The full list can be viewed <a href="https://www.cssfontstack.com/">here</a>.
+          Web safe fonts are a good fallback fonts that can be used if the preferred font isn't available. In the example above, Courier is used as a fallback font if Courier New isn't available. this is known as the <i>font stack</i>. 
+          A font stack usually contains a list of similiar looking fonts. The browser will try to use Courier New first. If its not available, it will use Courier, if that isn't available, it will use a monospaced font. 
+          <br><br>
+          Serif fonts have extra details on the ends of each letter. Sans-Serif letters do not.
+          <img src="../images/css_improvedStyling_typographySerifVSSansSerif.jpg" alt="A screenshot showing the difference between Serif and Sans-Serif fonts.">
+          Serif and Sans-Serif are also keyword values that can be added as a final fallback font if nothing else in the font stack is available.
+
+          <h1><code>font-weight</code></h1>
+          The <code>font-weight</code> property controls how bold or thin text appears. It can be specified with keywords or numerical values.
+          <br><br>
+          The <code>font-weight</code> property can take any of these keyword values:
+          <ul class="no-style">
+            <li class="no-style"><code>bold</code> -> makes the font <b>bold</b></li>
+            <li class="no-style"><code>normal</code> -> normal font weight. Default value</li>
+            <li class="no-style"><code>lighter</code> -> one font weight lighter than the elements parent value</li>
+            <li class="no-style"><code>bolder</code> -> one font weight bolder than the elements parent value</li>
+          </ul>
+          Numerical values can range from 1 (lightest) to 1000 (boldest). It is common practice to use increments of 100. A font weight of 400 is equal to the keyword <code>normal</code>. 
+          Font weight 700 is equal to <code>bold</code>. 
+          <br><br>
+          Note: not all fonts can be assigned a numeric font weight, and not all numeric font weights are available to all fonts. It is good practice to look up the font being used to see which <code>font-weight</code> values are available. 
+
+          <h1><code>font-style</code></h1>
+          Text can be italicized with <code>font-style: italic;</code>
+
+          <h1><code>text-transform</code></h1>
+          Text can also be styled to appear in either all upper or lower case with the <code>text-transform</code> property.
+          <img src="../images/css_improvedStyling_textTransform.jpg" alt="A screenshot showing the text transform property in CSS with the value of uppercase.">
+          The example above will make all <code>&lt;h1&gt;</code> text to appear in uppercase, regardless of the case typed in HTML.
+          <br><br>
+          It may seem pointless in having this property, but if a website posts breaking news from recent events, a ruleset to make all headings uppercase may be preffered as it'll allow the writer to type in all lower case and let the browser handle the capitalization.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Text Layout
+        </div>
+        <div class="reference-section-body">
+          The <code>letter-spacing</code> property is used to set the horizontal spacing between individual characters in an element. This property value takes the lengh in units such as <code>px</code> or <code>em</code>. 
+          <img src="../images/css_improvedStyling_textLayout_letterSpacing.jpg" alt="A screenshot showing a CSS ruleset with the letter spacing property set to 2 pixels.">
+          The spacing between words can be set using the <code>word-spacing</code> property.
+          <br><br>
+          The <code>line-height</code> property can be used to set how tall each line containing the text to be. Line height values can be unitless number such as 1.2, or a length value such as <code>px</code>, <code>em</code>, or percentage.
+          <img src="../images/css_improvedStyling_textLayout_lineHeight.jpg" alt="A screenshot showing the line height property set to 2.">
+          The unitless value is preferred since it is responsive based on the current font size. If the <code>line-height</code> is specified by a unitless number, changing the font size will automatically re-adjust the line height.
+          <br><br>
+          The <code>text-align</code> property aligns text to its parent element.
+          <img src="../images/css_improvedStyling_textLayout_textAlign.jpg" alt="A screenshot showing a CSS ruleset with the text align property set to centre.">
+          The above ruleset will align all <code>h1</code> elements to the centre of their parented element, instead of the default left.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Web Fonts
+        </div>
+        <div class="reference-section-body">
+          Free font services like <a href="https://fonts.google.com/" class="c-standard">Google Fonts</a> and <a href="https://fonts.adobe.com/" class="c-standard">Adobe Fonts</a> host fonts that can be linked to form HTML document with the <code>link</code> element. <a href="https://www.fonts.com/" class="c-standard">fonts.com</a> allows users to purchase fonts which can be downloaded
+          and hosted with the website itself. A <code>@font-face</code> ruleset can be created in the CSS file which links to the relative path of the font file.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Web Fonts using <code>&lt;link&gt;</code>
+        </div>
+        <div class="reference-section-body">
+          To use fonts on <a href="https://fonts.google.com/" class="c-standard">Google Fonts</a>, browse the site for the desired font. Once a font has been found, click the box that contains the font. 
+          On the top-right, click <b>Get Font</b> then <b>Get Embed Code</b> (or download it).
+          <br>
+          Click <b>Copy Code</b> and paste it between the <code>head</code> tags of the HTML document. Copy the CSS code and paste that in the relevant CSS file.
+        </div>
+      </div>
+
+      <div class="reference-section">
+        <div class="reference-section-title">
+          Web Fonts using <code>@font-face</code>
+        </div>
+        <div class="reference-section-body">
+          Fonts can be added using a <code>@font-face</code> ruleset in CSS, instead of using <code>link</code>. Font files come in different formats:
+          <ul class="no-style">
+            <li class="no-style">OTF -> OpenType Format</li>
+            <li class="no-style">TTF -> TrueType Format</li>
+            <li class="no-style">WOFF -> Web Open Font Format</li>
+            <li class="no-style">WOFF2 -> Web Open Font Format 2</li>
+          </ul>  
+          The different formats are a progression of standards fow how fonts will work with different browsers, with WOFF2 being the most progressive. It is a good idea to include TTF, WOFF, and WOFF2 formats with the <code>@font-face</code> ruleset to ensure compatibility on all browsers.
+          <br><br>
+          Example ruleset using <code>@font-face</code>
+          <img src="../images/css_improvedStyling_fontFaceProperty.jpg" alt="A screenshot showing the font face property which allows custom fonts to be applied.">
+          Web fonts are explained in further detail <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts#generating_the_required_code" class="c-standard">here</a>.
+        </div>
+      </div>
 
     </main>
 
